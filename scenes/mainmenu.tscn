@@ -1,0 +1,215 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://scripts/mainmenu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/dos.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://sprites/textButtonUP.png" type="Texture" id=3]
+[ext_resource path="res://sprites/textButtonDOWN.png" type="Texture" id=4]
+[ext_resource path="res://sprites/btnsoundUP.png" type="Texture" id=5]
+[ext_resource path="res://sprites/btnsoundDOWN.png" type="Texture" id=6]
+[ext_resource path="res://scenes/dlg_exit_2_dos.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "visibility"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label_menu:percent_visible")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
+
+[node name="mainmenu" type="CanvasLayer"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+script/script = ExtResource( 1 )
+
+[node name="Label_menu" type="Label" parent="."]
+
+anchor/left = 3
+anchor/right = 3
+rect/scale = Vector2( 0.7, 0.7 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 339.0
+margin/top = 9.0
+margin/right = -633.0
+margin/bottom = 206.0
+custom_fonts/font = ExtResource( 2 )
+text = "Fill the Holes"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TextureButton_play" type="TextureButton" parent="."]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 122.0
+margin/top = 184.0
+margin/right = -134.0
+margin/bottom = 248.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+textures/pressed = ExtResource( 4 )
+params/scale = Vector2( 1, 0.5 )
+
+[node name="Label_play" type="Label" parent="TextureButton_play"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 80.0
+margin/top = 8.0
+margin/right = 296.0
+margin/bottom = 98.0
+custom_fonts/font = ExtResource( 2 )
+text = "Play"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TextureButton_scores" type="TextureButton" parent="."]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 122.0
+margin/top = 263.0
+margin/right = -134.0
+margin/bottom = 327.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+textures/pressed = ExtResource( 4 )
+params/scale = Vector2( 1, 0.5 )
+
+[node name="Label_scores" type="Label" parent="TextureButton_scores"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 21.0
+margin/top = 9.0
+margin/right = 453.0
+margin/bottom = 99.0
+custom_fonts/font = ExtResource( 2 )
+text = "Continue"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TextureButton_exit" type="TextureButton" parent="."]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 123.0
+margin/top = 344.0
+margin/right = -133.0
+margin/bottom = 408.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 3 )
+textures/pressed = ExtResource( 4 )
+params/scale = Vector2( 1, 0.5 )
+
+[node name="Label_exit" type="Label" parent="TextureButton_exit"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 80.0
+margin/top = 8.0
+margin/right = 296.0
+margin/bottom = 98.0
+custom_fonts/font = ExtResource( 2 )
+text = "Exit"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="TextureButton_sound" type="TextureButton" parent="."]
+
+anchor/left = 1
+anchor/right = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 71.0
+margin/top = 5.0
+margin/right = 7.0
+margin/bottom = 69.0
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+textures/pressed = ExtResource( 6 )
+params/scale = Vector2( 0.5, 0.5 )
+
+[node name="dlg_exit_2_dos" parent="." instance=ExtResource( 7 )]
+
+visibility/visible = false
+anchor/left = 3
+anchor/right = 3
+margin/left = 240.0
+margin/top = 128.0
+margin/right = 200.0
+margin/bottom = 168.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/visibility = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "visibility"
+
+[connection signal="pressed" from="TextureButton_play" to="." method="_on_TextureButton_play_pressed"]
+
+[connection signal="pressed" from="TextureButton_scores" to="." method="_on_TextureButton_scores_pressed"]
+
+[connection signal="pressed" from="TextureButton_exit" to="." method="_on_TextureButton_exit_pressed"]
+
+[connection signal="pressed" from="TextureButton_sound" to="." method="_on_TextureButton_sound_pressed"]
+
+

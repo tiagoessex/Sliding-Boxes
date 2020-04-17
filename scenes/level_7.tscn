@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://scripts/level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/level_gui.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/target.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/square.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "New Anim"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("walls:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("targets:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("squares:visibility/opacity")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 1.0, 0.0 ] }
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "New Anim"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("walls:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("targets:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath("squares:visibility/opacity")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, 1.0 ] }
+
+[node name="level_7" type="Node"]
+
+script/script = ExtResource( 1 )
+
+[node name="level_gui" parent="." instance=ExtResource( 2 )]
+
+[node name="walls" type="Node2D" parent="."]
+
+[node name="wall" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 587.389, 140 )
+
+[node name="wall1" parent="walls" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 420, 380 )
+
+[node name="targets" type="Node2D" parent="."]
+
+[node name="target" parent="targets" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 530, 380 )
+
+[node name="target2" parent="targets" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 300, 140 )
+
+[node name="target1" parent="targets" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 530, 250 )
+
+[node name="squares" type="Node2D" parent="."]
+
+[node name="square" parent="squares" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 300, 380 )
+
+[node name="square2" parent="squares" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 130, 140 )
+
+[node name="square1" parent="squares" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 300, 250 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+process/pause_mode = 2
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/New Anim" = SubResource( 1 )
+playback/active = false
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="AnimationPlayer_start" type="AnimationPlayer" parent="."]
+
+process/pause_mode = 2
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/New Anim" = SubResource( 2 )
+playback/active = false
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[connection signal="finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_finished"]
+
+[connection signal="finished" from="AnimationPlayer_start" to="." method="_on_AnimationPlayer_start_finished"]
+
+

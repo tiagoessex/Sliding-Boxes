@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=1]
+
+[ext_resource path="res://sounds/click.smp" type="Sample" id=1]
+[ext_resource path="res://sounds/dialog.smp" type="Sample" id=2]
+[ext_resource path="res://sounds/gameover.smp" type="Sample" id=3]
+[ext_resource path="res://sounds/level_passage.smp" type="Sample" id=4]
+[ext_resource path="res://sounds/swap.smp" type="Sample" id=5]
+[ext_resource path="res://sounds/victory.smp" type="Sample" id=6]
+[ext_resource path="res://sounds/wall.smp" type="Sample" id=7]
+[ext_resource path="res://scripts/sfx.gd" type="Script" id=8]
+
+[sub_resource type="SampleLibrary" id=1]
+
+samples/click = { "db":0.0, "pitch":1.0, "sample":ExtResource( 1 ) }
+samples/dialog = { "db":0.0, "pitch":1.0, "sample":ExtResource( 2 ) }
+samples/gameover = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
+samples/level_passage = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
+samples/swap = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
+samples/victory = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
+samples/wall = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
+
+[node name="sfx" type="SamplePlayer"]
+
+process/pause_mode = 2
+config/polyphony = 8
+config/samples = SubResource( 1 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+script/script = ExtResource( 8 )
+
+
